@@ -1,7 +1,6 @@
 var ThingsView = Backbone.View.extend({
     el: '#thingmain',
     events: {
-        'click input#inputthingname': 'testfunc',
         'keypress #inputthingname': 'createThing'
     },
     initialize : function() {
