@@ -4,9 +4,11 @@ var ThingView = Backbone.View.extend({
     events: {
         'click #thingname': 'updateName',
         'keypress #editname': 'nameOnEnter',
-        'blur #editname': 'close'
+        'blur #editname': 'close',
+        'click button#deletething': 'deleteThing',
     },
     initialize : function() {
+        this.model.on('remove', this.unshowThing, this);
     },
     render : function() {
         $(this.el).html(this.template(this.model.toJSON()));
@@ -35,5 +37,11 @@ var ThingView = Backbone.View.extend({
     close : function() {
         this.name.show();
         this.edit.hide();
+    },
+    deleteThing : function() {
+        this.model.destroy();
+    },
+    unshowThing : function() {
+        $(this.el).remove();
     }
 });
