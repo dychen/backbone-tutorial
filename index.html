@@ -15,14 +15,15 @@
                     <th>Thing Name</th>
                     <th></th>
                 </thead>
-                <tbody id="thinglist">
+                <tbody id="thingtable">
                 </tbody>
             </table>
         </div>
 
         <script type="text/template" id="thingtemplate">
             <td style="text-align: left">
-                <label id="thingName"><%- name %></label>
+                <label id="thingname"><%- name %></label>
+                <input id="editname" value="<%- name %>">
             </td>
             <td style="text-align: right">
                 <button id="deleteThing" class="btn btn-danger">Delete</button>
@@ -32,6 +33,7 @@
         <script src="js/lib/jquery.min.js"></script>
         <script src="js/lib/underscore-min.js"></script>
         <script src="js/lib/backbone-min.js"></script>
+        <script src="js/lib/backbone.localStorage-min.js"></script>
         <script src="js/models/thing.js"></script>
         <script src="js/collections/things.js"></script>
         <script src="js/views/thing_view.js"></script>

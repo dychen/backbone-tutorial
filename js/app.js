@@ -1,2 +1,2 @@
-ENTER_KEY = 13;
-var thingsView = new ThingsView();
+//ENTER_KEY = 13;
+//var thingsView = new ThingsView();

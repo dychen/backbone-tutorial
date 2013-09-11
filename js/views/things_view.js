@@ -6,25 +6,28 @@ var ThingsView = Backbone.View.extend({
     initialize : function() {
         this.things = new Things();
     },
-    getInputValues : function() {
+    getInputValue : function() {
         return {
             name: this.$("#inputthingname").val().trim()
         }
     },
     createThing : function(e) {
         if (e.which === ENTER_KEY) {
-            var value = this.getInputValues();
+            var value = this.getInputValue();
             if (value) {
                 var newThing = new Thing(value);
                 this.things.add(newThing); 
-                this.showCreatedThing(newThing);
                 this.$("#inputthingname").val('');
+                this.showCreatedThing(newThing);
             }
         }
     },
     showCreatedThing : function(thing) {
         var newThingView = new ThingView({ model: thing });
         newThingView.render();
-        $('#thinglist').append(newThingView.el);
+        $('#thingtable').append(newThingView.el);
     }
 });
+
+ENTER_KEY = 13;
+var thingsView = new ThingsView();
